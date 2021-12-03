@@ -1,5 +1,8 @@
 import React from 'react'
 
+import Title from '../../UI/Title'
+import Input from '../../UI/Input'
+
 const Welcome = ({name, updateName, updateShowTodo}) => {
   const handleWelcomeSubmit = (event) => {
     event.preventDefault();
@@ -8,9 +11,12 @@ const Welcome = ({name, updateName, updateShowTodo}) => {
   
   return (
     <section>
-          <h1>Seja bem-vindo</h1>
+          <Title>
+            Seja bem vindo
+          </Title>
           <form onSubmit={handleWelcomeSubmit}>
-            <input type="text" value={name} onChange={(event) => updateName(event.target.value)} />
+            <Input value={name} onChange={(event) => updateName(event.target.value)} />
+
             <button>Iniciar</button>
           </form>
         </section>
