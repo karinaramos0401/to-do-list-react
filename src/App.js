@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
+
+import Todo from './pages/Todo'
+import Welcome from './pages/Welcome';
+
 import './App.css';
 
 function App() {
+  const [name, setName] = React.useState('');
+  const [showTodo, setShowTodo] = React.useState(false);
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    
+      {
+        !showTodo &&
+        <Welcome
+        name={name}
+        updateName={setName}
+        updateShowTodo={setShowTodo}
+        />
+      }
+      
+      {
+        showTodo &&
+        <Todo name={name} />
+        
+      }
+      
+    </>
   );
 }
 
