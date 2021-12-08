@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --primary-font: 'Handlee';
+  --secondary-font: 'Amatic SC';
+  --text-size: 1.4rem;
+  --input-text-size: 1.88rem;
+  --background-color: #DAE2E7;
+  --light-black: #333333;
+  --placeholder: #939393;
+  --input-color: #ffff;
 }

@@ -1,0 +1,43 @@
+.welcome {
+  width: 34rem;
+  height: 17rem;
+  background-color: var(--light-black);
+  color: #fff;
+  font-family: var(--primary-font);
+  font-size: var(--text-size);
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 12.5rem;
+
+}
+
+.span { 
+  display: inline-block;
+}
+
+/* Input {
+  width: 30rem;
+  height: 2.8rem;
+  border-radius: 0.625rem;
+  outline: none;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--placeholder);
+  font-family: var(--primary-font); */
+/*   
+} */
+
+.witch {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  transform: translate(210%, 40%);
+}

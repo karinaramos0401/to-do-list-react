@@ -1,7 +1,10 @@
 import React from 'react'
+import './Welcome.css'
 
 import Title from '../../UI/Title'
 import Input from '../../UI/Input'
+import Witch from '../../images/witch.png'
+
 
 const Welcome = ({name, updateName, updateShowTodo}) => {
   const handleWelcomeSubmit = (event) => {
@@ -11,14 +14,20 @@ const Welcome = ({name, updateName, updateShowTodo}) => {
   
   return (
     <section>
-          <Title>
-            Seja bem vindo
-          </Title>
-          <form onSubmit={handleWelcomeSubmit}>
-            <Input value={name} onChange={(event) => updateName(event.target.value)} />
-
-            <button>Iniciar</button>
-          </form>
+          <div className="container">
+            <div className="welcome">
+              <img className="witch" src={Witch} alt="uma bruxinha em cima da vassoura" /> 
+              <Title>
+              Hello, Witch!
+              <span className="span">
+                Tell me your name and then you can do your magic stuff.
+              </span> 
+              </Title>
+              <form onSubmit={handleWelcomeSubmit}>
+                <Input className="input" value={name} onChange={(event) => updateName(event.target.value)} placeholder="Type your magic name" />
+              </form>
+              </div>
+            </div>           
         </section>
   )
 }
