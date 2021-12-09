@@ -1,12 +1,8 @@
-fetch('http://localhost:3000/users', {
- method: 'POST',
- headers: {
-   'Content-Type': 'application/json'
- },
- body: JSON.stringify({ name: 'Ka', idade: '123'})
+const connection = (path, config) => {
+  const url = `http://localhost:3005/${path}` 
 
-}).then((resposta) => resposta.json()).then((data) => console.log(data))
+ return fetch(url,config)
+ .then(resposta => resposta.json())
+}
 
-
-
-// export default connection
+export default connection

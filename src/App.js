@@ -7,7 +7,7 @@ import Welcome from './pages/Welcome';
 import './App.css';
 
 function App() {
-  const [name, setName] = React.useState('');
+  const [user, setUser] = React.useState({});
   const [showTodo, setShowTodo] = React.useState(false);
   
   
@@ -17,15 +17,15 @@ function App() {
       {
         !showTodo &&
         <Welcome
-        name={name}
-        updateName={setName}
+        user={user}
+        updateUser={setUser}
         updateShowTodo={setShowTodo}
         />
       }
       
       {
         showTodo &&
-        <Todo name={name} />
+        <Todo user={user} />
         
       }
       

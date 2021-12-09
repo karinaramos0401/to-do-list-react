@@ -6,9 +6,31 @@ import Input from '../../UI/Input'
 import Witch from '../../images/witch.png'
 
 
-const Welcome = ({name, updateName, updateShowTodo}) => {
-  const handleWelcomeSubmit = (event) => {
+
+import { addUser, getUsers } from '../../api/users'
+const Welcome = ({user, updateUser, updateShowTodo}) => {
+  const initialName = user.name
+  const [name,setName] = React.useState(initialName)
+  const handleWelcomeSubmit = async (event) => {
     event.preventDefault();
+
+    const users = await getUsers()
+
+    const userFinded = users.find((user) => user.name === name )
+      
+      if(userFinded){
+        updateUser({...userFinded})
+      } else {
+          const dados = await addUser(name)
+          updateUser({...dados})
+      }
+  
+   addUser(name).then(dados => {
+     updateUser({
+       ...dados
+     })
+   })
+  //função de guardar
     updateShowTodo(true)
   }
   
@@ -20,11 +42,11 @@ const Welcome = ({name, updateName, updateShowTodo}) => {
               <Title>
               Hello, Witch!
               <span className="span">
-                Tell me your name and then you can do your magic stuff.
+                Tell me your user and then you can do your magic stuff.
               </span> 
               </Title>
               <form onSubmit={handleWelcomeSubmit}>
-                <Input className="input" value={name} onChange={(event) => updateName(event.target.value)} placeholder="Type your magic name" />
+                <Input value={name} onChange={(event) => setName(event.target.value)} placeholder="Type your magic user" />
               </form>
               </div>
             </div>           
